@@ -1,0 +1,36 @@
+How to install MySQL
+1. There total 9 file for MySQL
+
+2.Check if MySQL has installed
+    rpm -qa|grep -i mysql
+
+if has use
+    rpm -e –nodeps 
+to remove 
+
+3. use
+    rpm -ivh *.rpm
+to install MYSQL
+
+    mkdir -p /data/demodb
+create data directory
+
+    chown -R mysql:mysql /data
+change the class of 
+
+    vi /etc/my.cnf
+to change values and path
+
+add datadir
+    datadir=/data/demodb
+change timestamp
+    explicit_defaults_for_timestamp=true
+
+    /usr/sbin/mysqld --user=mysql --datadir=/data/demodb --initialize-insecure
+initialize database
+
+    /usr/sbin/mysqld --basedir=/usr --datadir=/data/demodb --plugin-dir=/usr/lib64/mysql/plugin --user=mysql &
+running database
+    
+    
+    
