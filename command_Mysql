@@ -1,0 +1,56 @@
+grant
+to give users access 
+
+  grant /access/ on /table/ to /user@address/ identitied by /password/
+also can use to add access
+
+get access back
+  revoke /access/ on /table/ from /user@address/
+  
+check access
+1)  look up from mysql.user 
+2)	show grants for /user@address/
+
+delete account
+  drop user /user@address/
+  
+access type: select, update, insert, delete
+
+address: localhost means access from local
+table: *.* means all table
+
+view
+create or replace view /viewname/ as select /tablename/
+drop view /viewname/
+
+explain command
+  explain + /command/
+ID: The sequence of command. The bigger command will rum first. If the ID is same, topper one will run first
+
+select_type: simple, primary, subquery, derived, union, unionresult
+simple means there no subquery or union
+primary means primary query
+derived means subquery in /from/
+
+type: all，index, range, ref, eq_ref, const, system, NULL
+from rigth to left. they become quicker
+all means full table scan
+index is full index scan
+range usually see in "between", ">" or "<"
+ref use key that not unique
+eq_ref use unique key
+
+Possiblekey
+key
+
+Join 
+left join will use left table as base
+right join will use right table as base
+inner join will only get the match result
+
+
+
+
+
+
+
