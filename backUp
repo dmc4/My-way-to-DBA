@@ -1,1 +1,50 @@
+command line
+  mysqldump –uroot -p --all-database > /filename/
+back up all databese
+
+  mysqldump –uroot –p /database name/ > /filename/
+back up certain database
+
+bin-log
+  ect/my.conf to open the bin log
+add
+  log-bin=binlog
+  serverid=1
+  
+look at binlog file
+  mysqlbinlog /file name/
+MySQL command
+  show binlog events
+to see the binlog in MySQL
+  
+back up by bin log
+back up by point
+  mysqlbinlog /binlog file/ --start-position=/point/ --stop-position=/point/ | mysql -uroot –p
+
+back up by time
+  mysqlbinlog /binlog file/ --start-datetime=/date/ | mysql -uroot –p
+
+also see
+http://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html
+
+use shell to back up databese automaticly
+
+use crontab to run shell 
+  crontab /user/
+to create a crontab file
+  
+  * * * * *   /command/
+minute hour day-of-month month-of-year day-of-week commands
+
+shell
+
+  find /root -mtime +7 -name *.log -exec rm -rf {} \; 
+  mysqldump –uroot -p --all-database > back.sql
+This shell can remove binlog 7 days ago and back all database
+
+
+
+
+
+
 
