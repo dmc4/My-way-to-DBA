@@ -1,0 +1,22 @@
+1. master-master structure
+server 1:
+log-bin           = mysql-bin
+server-id         = 1 
+expire-logs-days  = 100 
+replicate-do-db   = test
+binlog-ignore-db  = mysql
+binlog-ignore-db  = information_schema
+auto-increment-increment = 2 
+auto-increment-offset = 1
+
+server 2:
+log-bin           = mysql-bin
+server-id         = 2
+expire-logs-days  = 100
+replicate-do-db   = test
+binlog-ignore-db  = mysql
+binlog-ignore-db  = information_schema
+auto-increment-increment = 2
+auto-increment-offset = 2
+
+There also need an app called Keepalived to maintain the switch database when problem happend
